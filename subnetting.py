@@ -228,8 +228,8 @@ def subnetting(ip='192.168.0.1', host_amount=None, subnet_amount=None):
 
     c = ip2class(ip)
     if c not in default_netbits_dict.keys():
-        print "Class %s not allowed subnetting." %c
-        help_info()
+        print "\nWarning, Class %s not allowed subnetting.\n" %c
+        # help_info()
     default_cidr = default_netbits_dict[c]
     default_network_address = ip2network_address(ip,default_cidr)[2]
     default_network_address_bin_list = ip2binlist(default_network_address)
@@ -387,6 +387,49 @@ def help_info( mode='all'):
     print '. END .'
     sys.exit(1)
 
+def render(mode, content, detail=0):
+    header_dict = {
+        1: ['avail_hosts', 'netmask', 'network_address', 'first_avail_ip','last_avail_ip','broadcast_address'],
+        2: ['mask','hex_mask'],
+        3: ['mask','cidr'],
+        4: ['cidr','class','type', 'subnet_amount', 'network_address_list', 'avail_hosts'],
+        5: ['cidr','class', 'type', 'subnet_amount', 'network_address_list', 'avail_hosts'],
+        6: ['binstr', 'hexstr','long_int'],
+        7: ['ip', 'hexstr','long_int'],
+        8: ['ip','binstr','long_int'],
+        9: ['ip','binstr','hexstr'],
+    }
+    mode = int(mode)
+    header_list = header_dict[mode]
+    output = ''
+    output_header = ''
+    network_address_list =[]
+    if mode <=3 :
+        just = 20
+    elif 4<= mode <= 5:
+        just = 25
+    else:
+        just = 40
+
+    for header in header_list:
+        output_header += header.ljust(just)
+    if detail>0:
+        pass
+    else:
+        print '=' * 40 *4 + '\n'+output_header + '\n' + '-' * 40 *4
+    for each in content:
+        if type(each) is not list:
+            output += str(each).ljust(just)
+        else:
+            network_address_list = each
+            cidr = content[0]
+            output += 'Details listed below'.ljust(just)
+    print output
+    if len(network_address_list) >0:
+        for each_subnet in network_address_list:
+            render(1,ip2network_address(each_subnet,cidr),detail)
+            detail +=1
+
 def main():
 
     '''
@@ -520,7 +563,8 @@ def main():
 
     if result is None:
         help_info(mode)
-    print result
+    # print result
+    render(mode,result)
 
 if __name__ == '__main__':
     main()
