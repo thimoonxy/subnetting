@@ -1,5 +1,10 @@
 # subnetting
 ![image](http://www.cocoachina.com/cms/uploads/allimg/130509/4196_130509110536_1.jpg)
+
+subnetting.py is a CLI help neteng and sysadmin speed up subnetting, calculating and troubleshooting.
+
+For more ops tools, check the master project repo [opsPykit](https://github.com/thimoonxy/opsPyKit).
+
 ## Usage
 ```
 $ python subnetting.py --help
@@ -155,6 +160,7 @@ ip                                      binstr                                  
 - When using a mode, it prompts help info for the specific mode when facing issue, but not all the modes help info:
 
 > e.g. We use mode 1 but did not set cidr or mask, it prompts help info for mode 1:
+
 ```
 $ subnetting.py --mode 1 --ip 172.16.0.0
 ========================
@@ -308,8 +314,7 @@ Other modes Usage, e.g.: --mode 3 --all
 ```
 ![image](https://i-technet.sec.s-msft.com/dynimg/IC213267.gif)
 ## Todo list
- - [x] **Final Target:**
-To enable every func in http://tool.chinaz.com/Tools/subnetmask
+ - [x] **TBD**
 
 ---
 - [x] NetworkID  -   ip2network_address(ip, net)
