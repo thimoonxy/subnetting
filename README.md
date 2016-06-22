@@ -5,6 +5,12 @@ subnetting.py is a CLI help neteng and sysadmin speed up subnetting, calculating
 
 For more ops tools, check the master project repo [opsPykit](https://github.com/thimoonxy/opsPyKit).
 
+## Install
+
+```
+$easy_install subnetting
+```
+
 ## Usage
 ```
 $ python subnetting.py --help

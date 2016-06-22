@@ -7,16 +7,19 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
-
+# with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+#     long_description = f.read()
+long_description = '''
+subnetting.py is a CLI help neteng and sysadmin speed up subnetting, calculating and troubleshooting.
+For more ops tools, check the master project repo [opsPykit](https://github.com/thimoonxy/opsPyKit).
+'''
 setup(
-    name='sample',
+    name='subnetting',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.1',
+    version='0.0.2',
 
     description='IPv4 subnetting calculator CLI',
     long_description=long_description,
@@ -87,9 +90,9 @@ setup(
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
-    package_data={
-        '': ['README.rst'],
-    },
+    # package_data={
+    #     '': ['README.md','LICENSE.txt',],
+    # },
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
