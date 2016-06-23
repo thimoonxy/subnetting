@@ -7,9 +7,6 @@ Target: enable every func in http://tool.chinaz.com/Tools/subnetmask
 '''
 from optparse import OptionParser
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 
 addzero= lambda x : ( x not in "10" ) and '0' or x
 
@@ -55,8 +52,9 @@ def mask2cidr(mask='255.255.255.0'):
     # addzero= lambda x : ( x not in "10" ) and '0' or x    # set as global func
     mask_list = map(notexcess, mask_list)
     binmask_total=''
-    for x in range(4):
-        binmask = "%8s" %bin(mask_list[x]).split('0b')[1]   #  '    1101'
+    for x in mask_list:
+    #for x in range(4):
+        binmask = "%8s" %bin(x).split('0b')[1]   #  '    1101'
         binmask = ''.join(map(addzero,list(binmask)))       #  '00001101'  , addzero
         binmask_total += binmask
     try:
@@ -112,8 +110,8 @@ def ip2binlist(ip):
     iplist = ip.split('.')
     iplist = map(int,iplist)
     binlist = []
-    for x in range(4):
-        binmask = "%8s" %bin(iplist[x]).split('0b')[1]   #  '    1101'
+    for x in iplist:
+        binmask = "%8s" %bin(x).split('0b')[1]   #  '    1101'
         binmask = ''.join(map(addzero,list(binmask)))       #  '00001101'  , addzero
         binlist.append(binmask)
     return binlist
@@ -228,7 +226,7 @@ def subnetting(ip='192.168.0.1', host_amount=None, subnet_amount=None):
 
     c = ip2class(ip)
     if c not in default_netbits_dict.keys():
-        print "\nWarning, Class %s not allowed subnetting.\n" %c
+        print ("\nWarning, Class %s not allowed subnetting.\n" %c)
         # help_info()
     default_cidr = default_netbits_dict[c]
     default_network_address = ip2network_address(ip,default_cidr)[2]
@@ -295,10 +293,10 @@ def subnetting(ip='192.168.0.1', host_amount=None, subnet_amount=None):
         return cidr,c, flag,  len(network_address_list), network_address_list, avail_host_amount
 def help_info( mode='all'):
     info = ''
-    print '========================\n'
-    print 'Modes Usage:'
+    print ('========================\n')
+    print ('Modes Usage:')
     cut_off =  '------------------------\n'
-    print cut_off
+    print (cut_off)
     info_dict = {
     1: '''Mode = 1,  Transfer IP to  the Network Address info.
 
@@ -377,14 +375,14 @@ def help_info( mode='all'):
     ''',
     }
     try:
-        print info_dict[int(mode)]
-        print cut_off
+        print (info_dict[int(mode)])
+        print (cut_off)
     except:
         for x in range(1,10):
-            print info_dict[x]
-            print cut_off
-    print 'Other modes Usage, e.g.: --mode 3 --all'
-    print '. END .'
+            print (info_dict[x])
+            print (cut_off)
+    print ('Other modes Usage, e.g.: --mode 3 --all')
+    print ('. END .')
     sys.exit(1)
 
 def render(mode, content, detail=0):
@@ -416,7 +414,7 @@ def render(mode, content, detail=0):
     if detail>0:
         pass
     else:
-        print '=' * 40 *4 + '\n'+output_header + '\n' + '-' * 40 *4
+        print ('=' * 40 *4 + '\n'+output_header + '\n' + '-' * 40 *4)
     for each in content:
         if type(each) is not list:
             output += str(each).ljust(just)
@@ -424,7 +422,7 @@ def render(mode, content, detail=0):
             network_address_list = each
             cidr = content[0]
             output += 'Details listed below'.ljust(just)
-    print output
+    print (output)
     if len(network_address_list) >0:
         for each_subnet in network_address_list:
             render(1,ip2network_address(each_subnet,cidr),detail)

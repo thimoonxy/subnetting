@@ -1,5 +1,5 @@
 # subnetting
-![image](http://www.cocoachina.com/cms/uploads/allimg/130509/4196_130509110536_1.jpg)
+![image](https://github.com/thimoonxy/subnetting/blob/master/docs/logo.jpg)
 
 subnetting.py is a CLI help neteng and sysadmin speed up subnetting, calculating and troubleshooting.
 
