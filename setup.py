@@ -19,14 +19,14 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.2',
+    version='0.0.3',
 
     description='IPv4 subnetting calculator CLI',
     long_description=long_description,
 
     # The project's main homepage.
     url='https://github.com/thimoonxy/subnetting',
-    download_url = 'https://github.com/thimoonxy/subnetting/tarball/0.0.1',
+    download_url = 'https://github.com/thimoonxy/subnetting/tarball/0.0.3',
     # Author details
     author='Simon Xie',
     author_email='thimoon@sina.com',
