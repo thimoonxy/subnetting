@@ -414,7 +414,7 @@ def render(mode, content, detail=0):
     if detail>0:
         pass
     else:
-        print ('=' * 40 *4 + '\n'+output_header + '\n' + '-' * 40 *4)
+        print ('=' * 35 *4 + '\n'+output_header + '\n' + '-' * 35 *4)
     for each in content:
         if type(each) is not list:
             output += str(each).ljust(just)
@@ -541,6 +541,7 @@ def main():
         elif mode =='8':
             hexstr = ip
             hexlist = hexstr.split('.')
+            hexlist = [  each.zfill(2) for each in hexlist  ]
             ip = hexlist2ip( hexlist )
             binstr = '.'.join(hexlist2binlist(hexlist))
             dec = int( ''.join( hexlist ) ,16)

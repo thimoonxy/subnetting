@@ -1,3 +1,5 @@
 .git*
 dist/
 *egg-info/
+*pyc
+*zip

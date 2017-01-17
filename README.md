@@ -10,7 +10,10 @@ For more ops tools, check the master project repo [opsPykit](https://github.com/
 ```
 $easy_install subnetting
 ```
-
+or
+```
+$ pip install subnetting
+```
 ## Usage
 ```
 $ python subnetting.py --help
