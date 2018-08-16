@@ -8,11 +8,16 @@ For more ops tools, check the master project repo [opsPykit](https://github.com/
 ## Install
 
 ```
-$easy_install subnetting
+$ easy_install .
 ```
 or
 ```
-$ pip install subnetting
+$ pip install .
+```
+or
+```
+$ docker build -t subnetting .
+$ alias subnetting='docker run -it --rm subnetting'
 ```
 ## Usage
 ```
