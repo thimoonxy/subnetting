@@ -11,7 +11,7 @@ WORKDIR /app
 ADD . /app
 
 RUN apk add --update bash \
-    'python3<3.5.3' \
+    'python3<3.6' \
   && pip3 install subnetting \
   && rm -rf /var/cache/apk/*
 
